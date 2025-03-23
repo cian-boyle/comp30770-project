@@ -10,6 +10,13 @@ SELECT lang, COUNT(*) FROM tweets GROUP BY lang ORDER BY COUNT(*) DESC LIMIT 5;
 -- most active account
 SELECT screen_name, COUNT(*) FROM tweets GROUP BY screen_name ORDER BY COUNT(*) DESC LIMIT 5;
 
+-- most followed account
+SELECT screen_name, MAX(followers_count) AS followers_count
+FROM tweets
+GROUP BY screen_name
+ORDER BY followers_count DESC
+LIMIT 10;
+
 -- average tweet Engagement
 SELECT AVG(favourites_count + retweet_count) AS avg_tweet_engagement FROM tweets;
 
