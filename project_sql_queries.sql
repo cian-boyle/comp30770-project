@@ -107,7 +107,7 @@ WITH RECURSIVE word_extractor AS (
 )
 SELECT word, COUNT(*) AS frequency
 FROM word_extractor
-WHERE word <> ''
+WHERE hashtag NOT LIKE '%covid%' AND hashtag NOT LIKE '%corona%' AND hashtag NOT LIKE '%virus%'
 GROUP BY word
 ORDER BY frequency DESC
 LIMIT 10;
